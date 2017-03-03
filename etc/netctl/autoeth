@@ -1,0 +1,11 @@
+Description='Basic DHCP ethernet connection'
+Interface=enp2s0
+Connection=ethernet
+IP=dhcp
+DHCPClient=dhcpcd
+DHCPReleaseOnStop=yes
+## for DHCPv6
+#IP6=dhcp
+#DHCP6Client=dhclient
+## for IPv6 autoconfiguration
+IP6=stateless
