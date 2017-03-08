@@ -64,10 +64,10 @@
 # United Kingdom
 # United States
 # Vietnam
+Server = https://archlinux.cu.be/$repo/os/$arch
 Server = http://mirror.f4st.host/archlinux/$repo/os/$arch
 Server = http://mirror.cse.iitk.ac.in/archlinux/$repo/os/$arch
 Server = http://mirror.0x.sg/archlinux/$repo/os/$arch
-Server = https://archlinux.cu.be/$repo/os/$arch
 Server = http://mirror.0x.sg/archlinux/$repo/os/$arch
 #Server = http://archlinux.cu.be/$repo/os/$arch
 Server = http://mirror.0x.sg/archlinux/$repo/os/$arch

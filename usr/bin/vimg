@@ -1,0 +1,2 @@
+#!/bin/bash
+st -f 'Inconsolata:size=12' -e "vim"

@@ -6,5 +6,6 @@
 127.0.0.1	localhost.localdomain	localhost
 ::1		localhost.localdomain	localhost
 127.0.1.1	ABCA.localdomain	ABCA
+0.0.0.0		facebook.com
 
 # End of file

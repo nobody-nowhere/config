@@ -1,0 +1,7 @@
+#!/bin/bash
+i=1
+trap "kill -- -$$" SIGINT
+while [ $i -eq 1 ];	do
+	ping -q -W1 -c1 8.8.8.8 &> /dev/null && for i in $(seq 1000); do play /usr/share/sounds/freedesktop/stereo/Suppressed.mp3; done
+	((i=$?))
+done

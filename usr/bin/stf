@@ -1,0 +1,1 @@
+st -f 'Inconsolata-g:size=12' -g1366x768+0+0 -e $1

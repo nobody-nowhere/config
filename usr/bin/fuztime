@@ -1,0 +1,83 @@
+#!/bin/bash
+exact_time=$(date '+%H%M')
+exact_hour=$(echo $exact_time | cut -c 1,2)
+exact_minute=$(echo $exact_time | cut -c 3,4)
+case $exact_hour in
+00) fuzzy_hour='twelve';;
+01 | 13) fuzzy_hour='one';;
+02 | 14) fuzzy_hour='two';;
+03 | 15) fuzzy_hour='three';;
+04 | 16) fuzzy_hour='four';;
+05 | 17) fuzzy_hour='five';;
+06 | 18) fuzzy_hour='six';;
+07 | 19) fuzzy_hour='seven';;
+08 | 20) fuzzy_hour='eight';;
+09 | 21) fuzzy_hour='nine';;
+10 | 22) fuzzy_hour='ten';;
+11 | 23) fuzzy_hour='eleven';;
+12) fuzzy_hour='twelve';;
+esac
+case $exact_minute in
+00)	fuzzy_minute="O\' clock";;
+01) fuzzy_minute="O\' one";;
+02) fuzzy_minute="O\' two";;
+03) fuzzy_minute="O\' three";;
+04) fuzzy_minute="O\' four";;
+05) fuzzy_minute="O\' five";;
+06) fuzzy_minute="O\' six";;
+07) fuzzy_minute="O\' even";;
+08) fuzzy_minute="O\' eight";;
+09) fuzzy_minute="O\' nine";;
+10) fuzzy_minute='ten';;
+11) fuzzy_minute='eleven';;
+12) fuzzy_minute='twelve';;
+13) fuzzy_minute='thirteen';;
+14) fuzzy_minute='fourteen';;
+15) fuzzy_minute='fifteen';;
+16) fuzzy_minute='sixteen';;
+17) fuzzy_minute='seventeen';;
+18) fuzzy_minute='eighteen';;
+19) fuzzy_minute='nineteen';;
+20) fuzzy_minute='twenty';;
+21) fuzzy_minute='twenty-one';;
+22) fuzzy_minute='twenty-two';;
+23) fuzzy_minute='twenty-three';;
+24) fuzzy_minute='twenty-four';;
+25) fuzzy_minute='twenty-five';;
+26) fuzzy_minute='twenty-six';;
+27) fuzzy_minute='twenty-seven';;
+28) fuzzy_minute='twenty-eight';;
+29) fuzzy_minute='twenty-nine';;
+30) fuzzy_minute='thirty';;
+31) fuzzy_minute='thirty-one';;
+32) fuzzy_minute='thirty-two';;
+33) fuzzy_minute='thirty-three';;
+34) fuzzy_minute='thirty-four';;
+35) fuzzy_minute='thirty-five';;
+36) fuzzy_minute='thirty-six';;
+37) fuzzy_minute='thirty-seven';;
+38) fuzzy_minute='thirty-seven';;
+39) fuzzy_minute='thirty-one';;
+40) fuzzy_minute='forty';;
+41) fuzzy_minute='forty-one';;
+42) fuzzy_minute='forty-two';;
+43) fuzzy_minute='forty-three';;
+44) fuzzy_minute='forty-four';;
+45) fuzzy_minute='forty-five';;
+46) fuzzy_minute='forty-six';;
+47) fuzzy_minute='forty-seven';;
+48) fuzzy_minute='forty-eight';;
+49) fuzzy_minute='forty-nine';;
+50) fuzzy_minute='fifty';;
+51) fuzzy_minute='fifty-one';;
+52) fuzzy_minute='fifty-two';;
+53) fuzzy_minute='fifty-three';;
+54) fuzzy_minute='fifty-four';;
+55) fuzzy_minute='fifty-five';;
+56) fuzzy_minute='fifty-six';;
+57) fuzzy_minute='fifty-seven';;
+58) fuzzy_minute='fifty-eight';;
+59) fuzzy_minute='fifty-nine';;
+esac
+echo "$fuzzy_hour $fuzzy_minute"
+exit 0
