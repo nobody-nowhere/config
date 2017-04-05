@@ -29,7 +29,7 @@ if !exists("my_auto_commands_loaded")
 	augroup END
 endif
 
-" autocmd FileType cpp set keywordprg=cppman
+autocmd FileType cpp set keywordprg=cppman
 
 " set ttimeout		" time out for key codes
 " set ttimeoutlen=10	" wait up to 100ms after Esc for special key
@@ -51,9 +51,9 @@ set regexpengine=1
 
 " In many terminal emulators the mouse works just fine.  By enabling it you
 " can position the cursor, Visually select and scroll with the mouse.
-" if has('mouse')
-	set mouse=v
-" endif
+if has('mouse')
+	set mouse=a
+endif
 
 " Do incremental searching when it's possible to timeout
 if has('reltime')
@@ -116,34 +116,34 @@ nnoremap k gk
 
 " SPACE IS THE LEADER!
 map <Space> <Leader>
-map <Leader>o @o
-map <Leader>p @p
-map <Leader>i @i
+map <Space>o @o
+map <Space>p @p
+map <Space>i @i
 
 " Quick copy-paste
-vmap <Leader>y "+y
-vmap <Leader>Y "+Y
-vmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+vmap <Space>y "+y
+vmap <Space>Y "+Y
+vmap <Space>d "+d
+nmap <Space>p "+p
+nmap <Space>P "+P
+vmap <Space>p "+p
+vmap <Space>P "+P
 " vmap r "_dP
-" vmap <Leader>r "_d"+P
+" vmap <Space>r "_d"+P
 
 " Don't use Ex mode, use Q to quit
 " Revert with ":unmap Q", ":unmap q:"
 map Q <NOP>
-map <expr> <Leader>q &mod ? ':qa!' : ':q<CR>'
+map <F1> <NOP>
+map <expr> <Space>q &mod ? ':qa!' : ':q<CR>'
 "map q: :q<CR>
 
-map <Leader>` :w<CR>
-map <Leader>w <C-w>
-map <Leader>d :w<CR>:terminal<CR>
-map <F5> :w<CR>:Neomake!<CR><CR>
-map <F6> :w<CR>:Neomake!<Space>debug<CR>:terminal<Space>gdb<Space>./%.out<CR><CR>
-map <F9> :w<CR>:terminal<Space>./%.out<CR>
-map <Leader>z ZZ
+map <Space>` :w<CR>
+map <Space>w <C-w>
+map <Space>d :w<CR>:terminal<CR>
+map <F5> :w<CR>:NeomakeSh!<Space>make<Space>%.out<CR><CR>
+map <F6> :botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%.out<CR>
+map <F9> :botright<Space>vspl<CR>:terminal<Space>./%.out<CR>
 nnoremap <CR> <NOP>
 
 noremap ' `

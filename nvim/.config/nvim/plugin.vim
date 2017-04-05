@@ -23,7 +23,7 @@ map / <Plug>(easymotion-sn)
 " map N <Plug>(easymotion-prev)
 
 " ale-specific
-let g:ale_linters = {'text': ['proselint'], 'cpp': ['clang'], 'c': ['clang'], 'vim': ['vint'], }
+" let g:ale_linters = {'text': ['proselint'], 'cpp': ['clang'], 'c': ['clang'], 'vim': ['vint'], }
 let airline#extensions#ale#error_symbol = '⨉ '
 let airline#extensions#ale#warning_symbol = '⚠ '
 let g:ale_sign_column_always = 1
@@ -42,7 +42,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " let g:chromatica#highlight_feature_level=1
 " let g:chromatica#responsive_mode=1
 
-" autocmd! BufWritePost * Neomake
+autocmd! BufWritePost * NeomakeSh! make -r -f ./makefile %.out
 
 " Deoplete
 " let g:deoplete#enable_at_startup = 1
