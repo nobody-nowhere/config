@@ -12,6 +12,15 @@ set complete-=1
 " set shada=""
 set undofile
 set undodir=~/.local/share/nvim/undo
+tnoremap <C-w> <C-\><C-n>
+tnoremap <A-h> <C-\><C-n><C-w>h
+tnoremap <A-j> <C-\><C-n><C-w>j
+tnoremap <A-k> <C-\><C-n><C-w>k
+tnoremap <A-l> <C-\><C-n><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " Protect large files from sourcing and other overhead.
 if !exists("my_auto_commands_loaded")
@@ -29,10 +38,8 @@ if !exists("my_auto_commands_loaded")
 	augroup END
 endif
 
-autocmd FileType cpp set keywordprg=cppman
-
-" set ttimeout		" time out for key codes
-" set ttimeoutlen=10	" wait up to 100ms after Esc for special key
+set timeout		" time out for key codes
+set timeoutlen=2000
 " set cursorline
 
 "set noshowmode
@@ -42,18 +49,16 @@ set softtabstop=4
 set lazyredraw
 " set rnu
 " set nuw=3
-set scrolloff=3
+set scrolloff=4
 
-set title
+" set title
 set regexpengine=1
 
 " syntax on
 
 " In many terminal emulators the mouse works just fine.  By enabling it you
 " can position the cursor, Visually select and scroll with the mouse.
-if has('mouse')
-	set mouse=a
-endif
+set mouse=a
 
 " Do incremental searching when it's possible to timeout
 if has('reltime')
@@ -65,25 +70,15 @@ endif
 " Revert with ":unlet c_comment_strings".
 let c_comment_strings=1
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-	" Enable file type detection.
-	" Use the default filetype settings, so that mail gets 'tw' set to 72,
-	" 'cindent' is on in C files, etc.
-	" Also load indent files, to automatically do language-dependent indenting.
-	" Revert with ":filetype off".
-	filetype plugin indent on
-	" Put these in an autocmd group, so that you can revert them with:
-	" ":augroup vimStartup | au! | augroup END"
-	augroup vimStartup
+augroup vimStartup
 	au!
 
+	" Also load indent files, to automatically do language-dependent indenting.
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
 	" (happens when dropping a file on gvim).
 	autocmd BufReadPost * if line("'\"") >= 1 && line("'\"") <= line("$") |   exe "normal! g`\"" | endif
-	augroup END
-endif " has("autocmd")
+augroup END
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -98,6 +93,8 @@ endif
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd FileType cpp set keywordprg=:Term\ cppman
+" autocmd TermOpen * setlocal laststatus=0
 
 if has('gui_running')
 " Make shift-insert work like in Xterm
@@ -109,7 +106,8 @@ endif
 " <Ctrl-l> redraws the screen and removes any search highlighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
-cmap w!! w !sudo tee % >/dev/null
+" Force write! If you're not logged in as sudo
+cmap fw w !sudo tee % >/dev/null
 
 nnoremap j gj
 nnoremap k gk
@@ -135,13 +133,13 @@ vmap <Space>P "+P
 " Revert with ":unmap Q", ":unmap q:"
 map Q <NOP>
 map <F1> <NOP>
-map <expr> <Space>q &mod ? ':qa!' : ':q<CR>'
+map <expr> <Space>q &mod ? ':q!' : ':q<CR>'
 "map q: :q<CR>
 
 map <Space>` :w<CR>
 map <Space>w <C-w>
 map <Space>d :w<CR>:terminal<CR>
-map <F5> :w<CR>:NeomakeSh!<Space>make<Space>%.out<CR><CR>
+map <F5> :w<CR>:Neomake!<CR>
 map <F6> :botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%.out<CR>
 map <F9> :botright<Space>vspl<CR>:terminal<Space>./%.out<CR>
 nnoremap <CR> <NOP>
