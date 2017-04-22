@@ -19,16 +19,16 @@ map <Space>k <Plug>(easymotion-k)
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
 map / <Plug>(easymotion-sn)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
+" map n <Plug>(easymotion-next)
+" map N <Plug>(easymotion-prev)
 
 " ale-specific
 " let g:ale_linters = {'text': ['proselint'], 'cpp': ['clang'], 'c': ['clang'], 'vim': ['vint'], }
-let airline#extensions#ale#error_symbol = '⨉ '
-let airline#extensions#ale#warning_symbol = '⚠ '
+" let airline#extensions#ale#error_symbol = '⨉ '
+" let airline#extensions#ale#warning_symbol = '⚠ '
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '⨉ '
-let g:ale_sign_warning = '⚠ '
+" let g:ale_sign_error = 'E '
+" let g:ale_sign_warning = 'W '
 let g:ale_lint_delay=1000
 nmap <silent> <F4> <Plug>(ale_next_wrap)
 nmap <silent> <F12> :ALEToggle<CR>

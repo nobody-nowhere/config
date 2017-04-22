@@ -10,17 +10,20 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'neomake/neomake'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'Konfekt/FastFold'
-	" Plug 'jsfaint/gen_tags.vim' 
+	Plug 'jsfaint/gen_tags.vim' 
 	Plug 'w0rp/ale'
 
 	Plug 'easymotion/vim-easymotion'
 
 	Plug 'junegunn/vim-easy-align'
 	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-surround'
+	Plug 'vim-scripts/echofunc.vim'
+	Plug 'jiangmiao/auto-pairs'
 	" Plug 'c0r73x/neotags.nvim'
 
 	Plug 'vim-airline/vim-airline'
-	" Plug 'mklabs/split-term.vim'
+	Plug 'mklabs/split-term.vim'
 
 	Plug 'vim-airline/vim-airline-themes'
 	" Plug 'chriskempson/base16-vim'

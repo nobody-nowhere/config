@@ -139,7 +139,7 @@ map <expr> <Space>q &mod ? ':q!' : ':q<CR>'
 map <Space>` :w<CR>
 map <Space>w <C-w>
 map <Space>d :w<CR>:terminal<CR>
-map <F5> :w<CR>:Neomake!<CR>
+map <F5> :w<CR>:NeomakeSh!<space>expand(g:mp)<CR>
 map <F6> :botright<Space>vspl<CR>:terminal<Space>gdb<Space>./%.out<CR>
 map <F9> :botright<Space>vspl<CR>:terminal<Space>./%.out<CR>
 nnoremap <CR> <NOP>
